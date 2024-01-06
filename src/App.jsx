@@ -1,33 +1,44 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Link, Route, Routes } from 'react-router-dom'
 import './App.css'
+import HomePage  from './pages/Homepage'
+import Product from './pages/Product'
+import ProductDetail from './pages/ProductDetail'
+import NewProduct from './pages/NewProduct'
+import EditProduct from './pages/EditProduct'
+import Cart from './pages/Cart'
+import { useState } from 'react'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  //HIGHER ORDER STATE FOR THE DATA
+  const [cart, setCart] = useState([])
+  
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Hello World<code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <nav>
+      <ul className='nav'>
+        <div className='links'>
+          <Link to='/'>Home</Link>
+          <Link to='/product'>Products</Link>
+          <Link to='/product/new'>Add New Product</Link>   
+        </div>  
+        <div className='cart'>
+            <Link to='/cart'>Cart({cart.length})</Link> 
+        </div> 
+
+      </ul>
+ 
+    </nav>
+
+    <Routes>
+      <Route path='/' element={<HomePage />} />
+      <Route path='/product/new' element={<NewProduct />} />   
+      <Route path='/products/:productId/update' element={<EditProduct />} />
+      <Route path='/products/:productId' element={<ProductDetail setCart={setCart} />} />
+      <Route path='/cart' element={<Cart cart={cart} setCart={setCart} />} />
+      <Route path='/product' element={<Product />} />
+      <Route path='*' element={<h1>404 page</h1>} />
+    </Routes>
+    
     </>
   )
 }
