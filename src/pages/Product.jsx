@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
+
 const API_URL = 'https://api.escuelajs.co/api/v1/products'
 
 const Product = () => {
@@ -25,7 +26,8 @@ const Product = () => {
     },[]) 
 
     return (
-    <>      
+    <> 
+ 
         <h1 className="main-title">Our Products</h1>
         <ul className="grid">   
             {product.map(products => (
@@ -41,6 +43,7 @@ const Product = () => {
                 </div>                   
             ))}
         </ul>
+  
     </>   
     )    
 }

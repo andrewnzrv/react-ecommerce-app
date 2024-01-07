@@ -1,5 +1,9 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import { Input } from '@mantine/core';
+import { TextInput } from '@mantine/core';
+import '@mantine/core/styles.css';
+import { Button } from '@mantine/core';
 
 const API_URL = 'https://api.escuelajs.co/api/v1/products';
 
@@ -54,19 +58,18 @@ const NewProduct = () => {
         <form onSubmit={handleSubmit}>
             <label>
                 Title:
-                <input value={title} onChange={event => setTitle(event.target.value)} required/>
+                <Input placeholder="Title" value={title} onChange={event => setTitle(event.target.value)} required/>
             </label>
             <label>
                 Description:
-                <input value={description} onChange={event => setDescription(event.target.value)} required/>
+                <Input placeholder="Description" value={description} onChange={event => setDescription(event.target.value)} required/>
             </label>
             <label>
                 Price:
-                <input value={price} onChange={event => setPrice(event.target.value)} required/>
+                <Input placeholder="Input component" value={price} onChange={event => setPrice(event.target.value)} required/>
             </label>
-            
-      
-            <button type="submit">Create</button>
+                
+            <Button type="submit">Create</Button>
 
         </form>
     </div>    

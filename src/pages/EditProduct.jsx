@@ -2,6 +2,8 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import '@mantine/core/styles.css';
+
 
 const API_URL = 'https://api.escuelajs.co/api/v1/products'
 
