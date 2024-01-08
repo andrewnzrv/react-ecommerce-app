@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { Stepper, Button, Group } from "@mantine/core";
-import CheckoutPersonalDetails from "./CheckoutAddress";
+import { Stepper, Button, Box, Group, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 
 function CheckoutStepper() {
-  const [active, setActive] = useState(1);
+  const [active, setActive] = useState(0);
   const [highestStepVisited, setHighestStepVisited] = useState(active);
   const handleStepChange = (nextStep) => {
     console.log();
@@ -15,25 +14,6 @@ function CheckoutStepper() {
     setActive(nextStep);
     setHighestStepVisited((hSC) => Math.max(hSC, nextStep));
   };
-
-  /*const handleSubmit = (e) => {
-    e.preventDefault();
-  };
-
-  const [checkoutDetails, setCheckoutDetails] = useState({
-    firstName: "",
-    lastName: "",
-    postcode: "",
-    city: "",
-    street: "",
-    houseNum: "",
-    email: "",
-    termsOfService: false,
-    cardNum: "",
-    cardHolder: "",
-    expDate: "",
-    securityCode: "",
-  });*/
 
   const form = useForm({
     initialValues: {
@@ -50,6 +30,11 @@ function CheckoutStepper() {
       expDate: "",
       securityCode: "",
     },
+    validate: {
+      email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
+      termsOfService: (value) =>
+        value === false ? "You must agree to sell your privacy" : null,
+    },
   });
 
   // Allow the user to freely go back and forth between visited steps.
@@ -62,25 +47,54 @@ function CheckoutStepper() {
           label="Address"
           allowStepSelect={shouldAllowSelectStep(0)}
         >
-          <CheckoutPersonalDetails
-            firstName={checkoutDetails.firstName}
-            lastName={checkoutDetails.lastName}
-            postcode={checkoutDetails.postcode}
-            city={checkoutDetails.city}
-            street={checkoutDetails.street}
-            houseNum={checkoutDetails.houseNum}
-            email={checkoutDetails.email}
-            termsOfService={checkoutDetails.termsOfService}
-          />
+          <Box maw={340} mx="auto">
+            <TextInput
+              label="First Name"
+              {...form.getInputProps("firstName")}
+            />
+            <TextInput label="Last Name" {...form.getInputProps("lastName")} />
+
+            <TextInput label="Postcode" {...form.getInputProps("postcode")} />
+
+            <TextInput label="City" {...form.getInputProps("city")} />
+
+            <TextInput label="Street" {...form.getInputProps("street")} />
+
+            <TextInput
+              label="House Number"
+              {...form.getInputProps("houseNum")}
+            />
+
+            <TextInput label="Email" {...form.getInputProps("email")} />
+          </Box>
         </Stepper.Step>
         <Stepper.Step
           label="Payment"
           allowStepSelect={shouldAllowSelectStep(1)}
         >
-          Step 2 content: Verify email
+          <Box maw={340} mx="auto">
+            <TextInput label="Card Number" {...form.getInputProps("cardNum")} />
+            <TextInput
+              label="Card Holder"
+              {...form.getInputProps("cardHolder")}
+            />
+            <TextInput
+              label="Expiration Date"
+              {...form.getInputProps("expDate")}
+            />
+            <TextInput
+              label="Security Code"
+              {...form.getInputProps("securityCode")}
+            />
+          </Box>
         </Stepper.Step>
         <Stepper.Step label="Review" allowStepSelect={shouldAllowSelectStep(2)}>
-          Step 3 content: Get full access
+          <Box maw={340} mx="auto">
+            <p>
+              {form.values.firstName} {form.values.lastName}
+            </p>
+            <p>{form.values.firstName}</p>
+          </Box>
         </Stepper.Step>
 
         <Stepper.Completed>
