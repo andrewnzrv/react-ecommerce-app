@@ -50,6 +50,7 @@ body {
     padding: 50px;
     font-size: 1.5rem;
 }
+
 img {
     width: 80%;
     border: 1px solid black;
@@ -60,8 +61,26 @@ img {
     width: 30%;
 }
 
-.grid-detail {
+.main-img {
+    width: 40%;
+}
+
+.gallery-img{
+    display: flex;
+    gap: 10px;
+    width: 20%;
+    cursor: pointer;
+}
+
+.product-detail {
     padding: 10px 20px;
+}
+
+.detail-button {
+    display: flex;
+    flex-direction: row-reverse;
+   margin-top: 10px;
+
 }
 
 .add-grid {
