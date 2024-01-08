@@ -11,7 +11,7 @@ import { useState } from 'react'
 function App() {
   //HIGHER ORDER STATE FOR THE DATA
   const [cart, setCart] = useState([])
-  
+
   return (
     <>
     <nav>
