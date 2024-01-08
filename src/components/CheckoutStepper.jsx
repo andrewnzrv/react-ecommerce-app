@@ -5,10 +5,12 @@ import { useForm } from "@mantine/form";
 function CheckoutStepper() {
   const [active, setActive] = useState(0);
   const [highestStepVisited, setHighestStepVisited] = useState(active);
+
   const handleStepChange = (nextStep) => {
-    console.log();
     const isOutOfBounds = nextStep > 3 || nextStep < 0;
     if (isOutOfBounds) {
+      return;
+    } else if (form.validate().hasErrors) {
       return;
     }
     setActive(nextStep);
@@ -30,16 +32,19 @@ function CheckoutStepper() {
       expDate: "",
       securityCode: "",
     },
-    validate: {
-      email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
-      termsOfService: (value) =>
-        value === false ? "You must agree to sell your privacy" : null,
+    validate: (values) => {
+      if (active === 0) {
+        return {
+          email: /^\S+@\S+$/.test(values.email) ? null : "Invalid email",
+        };
+      }
     },
   });
 
   // Allow the user to freely go back and forth between visited steps.
   const shouldAllowSelectStep = (step) =>
     highestStepVisited >= step && active !== step;
+
   return (
     <>
       <Stepper active={active} onStepClick={setActive}>
@@ -93,7 +98,12 @@ function CheckoutStepper() {
             <p>
               {form.values.firstName} {form.values.lastName}
             </p>
-            <p>{form.values.firstName}</p>
+            <p>
+              {form.values.street} {form.values.houseNum},{" "}
+              {form.values.postcode} {form.values.city}
+            </p>
+            <p>{form.values.email}</p>
+            <p>Card number: {form.values.cardNum}</p>
           </Box>
         </Stepper.Step>
 
