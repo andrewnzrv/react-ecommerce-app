@@ -1,17 +1,17 @@
 import { TextInput, Checkbox, Button, Group, Box } from "@mantine/core";
 import { useForm } from "@mantine/form";
 
-function CheckoutPersonalDetails() {
+function CheckoutPersonalDetails(props) {
   const form = useForm({
     initialValues: {
-      firstName: "",
-      lastName: "",
-      postcode: "",
-      city: "",
-      street: "",
-      houseNum: "",
-      email: "",
-      termsOfService: false,
+      firstName: props.firstName,
+      lastName: props.lastName,
+      postcode: props.postcode,
+      city: props.city,
+      street: props.street,
+      houseNum: props.houseNum,
+      email: props.email,
+      termsOfService: props.termsOfService,
     },
     validate: {
       email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
@@ -21,7 +21,7 @@ function CheckoutPersonalDetails() {
   });
   return (
     <Box maw={340} mx="auto">
-      <form onSubmit={form.onSubmit((values) => console.log(values))}>
+      <form>
         <TextInput label="First Name" {...form.getInputProps("firstName")} />
         <TextInput label="Last Name" {...form.getInputProps("lastName")} />
 
@@ -41,9 +41,7 @@ function CheckoutPersonalDetails() {
           {...form.getInputProps("termsOfService", { type: "checkbox" })}
         />
 
-        <Group justify="flex-end" mt="md">
-          <Button type="submit">Submit</Button>
-        </Group>
+        <Group justify="flex-end" mt="md"></Group>
       </form>
     </Box>
   );
