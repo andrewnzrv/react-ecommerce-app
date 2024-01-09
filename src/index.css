@@ -2,7 +2,7 @@ body {
     font-family: avenir;
     background-color: #FFFFFF;
 }
-
+/*Product Section - GRID*/
 .main-title {
     display: flex;
     justify-content: center;
@@ -12,7 +12,9 @@ body {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr; 
 }
+/*Product Section - GRID*/
 
+/*Navbar*/
 .nav {
     display: flex;
     justify-content: space-between;
@@ -37,11 +39,6 @@ body {
     width: 20%;
 }
 
-.product-info {
-    line-height: 0.9;
-    margin-bottom: 80px;
-}
-
 .main-title {
     display: flex;
     justify-content: space-between;
@@ -61,9 +58,6 @@ img {
     width: 30%;
 }
 
-.main-img {
-    width: 40%;
-}
 
 .gallery-img{
     display: flex;
@@ -72,9 +66,6 @@ img {
     cursor: pointer;
 }
 
-.product-detail {
-    padding: 10px 20px;
-}
 
 .filter-ctn {
     display: flex;
@@ -90,12 +81,61 @@ img {
       
 }
 
-
-.detail-button {
+/*Product Detail Section*/
+.product-detail {
+    padding: 10px 20px;
+  }
+  
+  .product-info {
+    padding: 10px 0px;
+    padding-top: 100px;
+    line-height: 1.5; /* Adjust the line height as needed */
+  }
+  
+  .detail-img-container {
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
+    gap: 10px;
+  }
+  
+  .gallery-img {
+    display: flex;
+    flex-shrink: 1;
+    flex-direction: column;
+    width: 5%;
+    margin-right: 20px; /* Adjust the margin as needed */
+  }
+  
+  .detail-btn-container {
+    margin-top: 50px;
+    margin-left: -70px;
+  }
+  
+  .detail-text {
+    width: 70%;
+    line-height: 1.8;
+  }
+  
+  .main-img {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+  }
+  
+  .img-detail {
+    width: 100%; /* Ensure images fill their container */
+    cursor: pointer;
+    /* Add any other styles as needed */
+  }
+  
+  .detail-button {
+    display: flex;
     margin-top: 10px;
-}
+  }
+  
+  /* Add any other styles you need for responsiveness or specific design requirements */
+  
+/*End Product Detail Section*/
 
 .add-grid {
     padding: 10px 20px;
