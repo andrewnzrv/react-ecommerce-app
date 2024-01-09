@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "@mantine/core/styles.css";
 import { Button } from "@mantine/core";
+import { Grid } from '@mantine/core';
 
 
 const API_URL = 'https://api.escuelajs.co/api/v1/products'
@@ -59,18 +60,19 @@ const Product = () => {
             <ul>
                 {categories.map((cat) => (
                 <div className="filter-button" key={cat.id}>
-                    <Button variant="outline" color="gray" onClick={() => filterItems(cat.name)}>{cat.name}</Button>
+                    <Button variant="outline" onClick={() => filterItems(cat.name)}>{cat.name}</Button>
                 </div>
                 ))}
-            </ul>
+        </ul>
     </div> 
+   
         <ul className="grid">
             
         {(filter.length > 0 ? filter : product).map((products) => (
           <div key={products.id}>
             <Link to={`/products/${products.id}`}>
               <img className="img" src={products.images[0]} alt={products.title} />
-              <div className="product-info">
+              <div className="">
                 <h1>{products.title}</h1>
                 <p>
                   {products.price} <span>&#8364;</span>{" "}
@@ -80,6 +82,7 @@ const Product = () => {
           </div>
         ))}
       </ul>
+
   
     </>   
     )    
