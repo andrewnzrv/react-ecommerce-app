@@ -107,7 +107,7 @@ const ProductDetail = ({setCart}) => {
                                                     
                 </div> 
             </div>   
-                                 
+
             </>
                      
          : null} 

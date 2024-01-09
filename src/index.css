@@ -58,7 +58,6 @@ img {
     width: 30%;
 }
 
-
 .gallery-img{
     display: flex;
     gap: 10px;
@@ -66,6 +65,7 @@ img {
     cursor: pointer;
 }
 
+=======
 
 .filter-ctn {
     display: flex;
@@ -136,6 +136,7 @@ img {
   /* Add any other styles you need for responsiveness or specific design requirements */
   
 /*End Product Detail Section*/
+
 
 .add-grid {
     padding: 10px 20px;
