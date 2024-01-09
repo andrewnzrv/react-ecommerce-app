@@ -76,17 +76,30 @@ img {
     padding: 10px 20px;
 }
 
+.filter-ctn {
+    display: flex;
+    padding: 10px 20px; 
+    
+}
+
+.filter-ctn ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+      
+}
+
+
 .detail-button {
     display: flex;
     flex-direction: row-reverse;
-   margin-top: 10px;
-
+    margin-top: 10px;
 }
 
 .add-grid {
     padding: 10px 20px;
     width: 50%;
-
 }
 
 h1 {
