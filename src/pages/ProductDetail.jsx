@@ -110,6 +110,7 @@ const ProductDetail = ({ setCart }) => {
         </div> 
         </>        
     )   
+  }
 }
  
 export default ProductDetail;
