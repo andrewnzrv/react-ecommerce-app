@@ -91,7 +91,7 @@ const ProductDetail = ({ setCart }) => {
                         <div className="detail-text">
                             <p>{product.description}</p>
                         </div>
-                        <p>{product.price} <span>&#8364;</span> </p>
+                        <p className="price-detail">{product.price} <span>&#8364;</span> </p>
                         <br />     
                         <Link to={`/products/${productId}/update`}>
                             <Button className="detail-button" variant="filled" type='button'>Update</Button>
