@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Cart = ({ cart, setCart }) => {
+
   const handleDeleteAll = () => {
     setCart([]);
   };
@@ -29,6 +30,7 @@ const Cart = ({ cart, setCart }) => {
           <ul>
             {cart.map((product, index) => (
               <div className="cart-grid" key={index}>
+                
                 <div>
                   <h2>{product.title}</h2>
 
@@ -44,13 +46,7 @@ const Cart = ({ cart, setCart }) => {
                   {/* 
               trick -> per passare argomenti agli event handler (dallo scope) 
               */}
-                  <button
-                    onClick={() => {
-                      handleDelete(index);
-                    }}
-                  >
-                    Delete
-                  </button>
+                  <button onClick={() => {handleDelete(index);}}>Delete</button>
                 </div>
               </div>
             ))}
