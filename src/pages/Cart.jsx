@@ -60,9 +60,11 @@ const Cart = ({ cart, setCart }) => {
         Subtotal: {totalPrice()}
         <span>&#8364;</span>
       </h2>
-      <Link to="/checkout">
-        <button>GO TO CHECKOUT</button>
-      </Link>
+      {cart.length != 0 && (
+        <Link to="/checkout">
+          <button>GO TO CHECKOUT</button>
+        </Link>
+      )}
     </>
   );
 };

@@ -12,7 +12,7 @@ import CheckoutPage from "./pages/CheckoutPage";
 function App() {
   //HIGHER ORDER STATE FOR THE DATA
 
-  const [cart, setCart] = useState([])
+  const [cart, setCart] = useState([]);
 
 
   return (
@@ -40,7 +40,10 @@ function App() {
         />
         <Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} />
         <Route path="/product" element={<Product />} />
-        <Route path="checkout" element={<CheckoutPage />} />
+        <Route
+          path="checkout"
+          element={<CheckoutPage cart={cart} setCart={setCart} />}
+        />
         <Route path="*" element={<h1>404 page</h1>} />
       </Routes>
     </>

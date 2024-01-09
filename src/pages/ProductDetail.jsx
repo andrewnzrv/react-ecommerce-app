@@ -2,53 +2,49 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-import { Input } from '@mantine/core';
-import { TextInput } from '@mantine/core';
-import '@mantine/core/styles.css';
-import { Button } from '@mantine/core';
+import { Input } from "@mantine/core";
+import { TextInput } from "@mantine/core";
+import "@mantine/core/styles.css";
+import { Button } from "@mantine/core";
 import Cart from "./Cart";
 
-const API_URL = 'https://api.escuelajs.co/api/v1/products'
+const API_URL = "https://api.escuelajs.co/api/v1/products";
 
-const ProductDetail = ({setCart}) => {
-    const { productId } = useParams()
-    const [product, setProduct] = useState()
-    //console.log("this is",product)
-    const [index, setIndex] = useState(0)
-    const navigate = useNavigate()
+const ProductDetail = ({ setCart }) => {
+  const { productId } = useParams();
+  const [product, setProduct] = useState();
+  //console.log("this is",product)
+  const [index, setIndex] = useState(0);
+  const navigate = useNavigate();
 
-    
-    const fetchProduct = async() => {
-        try {
-            const response = await fetch(`${API_URL}/${productId}`);
-                if(response.ok) {
-                    const productData = await response.json()
-                    //console.log(productData)
-                    setProduct(productData)
-                }
-            } catch (error) {
-              console.log(error)
-            }
+  const fetchProduct = async () => {
+    try {
+      const response = await fetch(`${API_URL}/${productId}`);
+      if (response.ok) {
+        const productData = await response.json();
+        //console.log(productData)
+        setProduct(productData);
+      }
+    } catch (error) {
+      console.log(error);
     }
+  };
 
-    useEffect(() => {
-        fetchProduct()
-    },[])
+  useEffect(() => {
+    fetchProduct();
+  }, []);
 
-    const handleDelete = async () => {
-
-        try {
-            const response = await fetch(`${API_URL}/${productId}`,{
-                method: 'DELETE',
-            }); 
-            console.log(response)    
-            if (response.ok) {
-                navigate('/product')
-            }     
-        } catch (error) {
-            console.log(error);
-        }
-
+  const handleDelete = async () => {
+    try {
+      const response = await fetch(`${API_URL}/${productId}`, {
+        method: "DELETE",
+      });
+      console.log(response);
+      if (response.ok) {
+        navigate("/product");
+      }
+    } catch (error) {
+      console.log(error);
     }
 
     const handleCart = () => {
