@@ -46,70 +46,86 @@ const ProductDetail = ({ setCart }) => {
     } catch (error) {
       console.log(error);
     }
+  };
 
-    const handleCart = () => {
-        // add product to the cart
-        setCart((cart)=>{
-            return [...cart, product]
-        });
+  const handleCart = () => {
+    // add product to the cart
+    setCart((cart) => {
+      return [...cart, product];
+    });
+  };
+  //console.log("this is the product", productId)
 
-      };
-    //console.log("this is the product", productId)
-
-    return (                  
-        <>
-        <div className="product-detail"> 
-         {product ? 
-         
-            <>
-            <div className="product-info">              
-                <div className="detail-img-container">
-                    <div className="gallery-img">
-
-                    {product.images
-                    //excludes the image at the current index   
-                    //creates a new array by filtering out elements             
-                    //.filter((i) => i !== index) //filter condition that keeps only the elements for which the index is not equal to the current index.                       
+  return (
+    <>
+      <div className="product-detail">
+        {product ? (
+          <>
+            <div className="product-info">
+              <div className="detail-img-container">
+                <div className="gallery-img">
+                  {product.images
+                    //creates a new array by filtering out elements
+                    //.filter((i) => i !== index) //filter condition that keeps only the elements for which the index is not equal to the current index.
                     .map((src, i) => (
-                    <img
-                        key={i}//react requires a unique key to update the dom
+                      <img
+                        key={i} //react requires a unique key to update the dom
                         className="img-detail"
-                        src={src}//set the source URL from the image
+                        src={src} //set the source URL from the image
                         alt={product.title}
                         onClick={() => setIndex(i)}
-                        />
+                      />
                     ))}
+                </div>
 
-                    </div> 
+                <div className="main-img">
+                  <img src={product.images[index]} alt="" />
+                </div>
 
-                    <div className="main-img">
-                        <img src={product.images[index]} alt="" />
-                    </div> 
+                <div className="detail-btn-container">
+                  <h2>{product.title}</h2>
+                  <div className="detail-text">
+                    <p>{product.description}</p>
+                  </div>
+                  <p className="price-detail">
+                    {product.price} <span>&#8364;</span>{" "}
+                  </p>
+                  <br />
+                  <Link to={`/products/${productId}/update`}>
+                    <Button
+                      className="detail-button"
+                      variant="filled"
+                      type="button"
+                    >
+                      Update
+                    </Button>
+                  </Link>
 
-                    <div className="detail-btn-container"> 
-                        <h2>{product.title}</h2> 
-                        <div className="detail-text">
-                            <p>{product.description}</p>
-                        </div>
-                        <p>{product.price} <span>&#8364;</span> </p>
-                        <br />     
-                        <Link to={`/products/${productId}/update`}>
-                            <Button className="detail-button" variant="filled" type='button'>Update</Button>
-                        </Link>
-                        
-                        <Button className="detail-button" variant="filled" onClick={handleCart} type="button">Add to Cart</Button> 
-                        <Button variant="outline" color="red" className="detail-button" type="button" onClick={handleDelete}>Delete Product</Button>
-                    </div> 
-                                                    
-                </div> 
-            </div>   
+                  <Button
+                    className="detail-button"
+                    variant="filled"
+                    onClick={handleCart}
+                    type="button"
+                  >
+                    Add to Cart
+                  </Button>
+                  <Button
+                    variant="outline"
+                    color="red"
+                    className="detail-button"
+                    type="button"
+                    onClick={handleDelete}
+                  >
+                    Delete Product
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </>
+        ) : null}
+      </div>
+    </>
+  );
+};
 
-            </>
-                     
-         : null} 
-        </div> 
-        </>        
-    )   
-}
- 
 export default ProductDetail;
