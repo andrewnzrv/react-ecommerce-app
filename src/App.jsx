@@ -12,6 +12,9 @@ import CheckoutPage from "./pages/CheckoutPage";
 function App() {
   //HIGHER ORDER STATE FOR THE DATA
 
+  const [cart, setCart] = useState([])
+
+
   return (
     <>
       <nav>

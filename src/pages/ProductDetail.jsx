@@ -62,47 +62,52 @@ const ProductDetail = ({setCart}) => {
 
     return (                  
         <>
-        <div className="product-detail">
-         <h1>id {productId}</h1>  
+        <div className="product-detail"> 
          {product ? 
          
             <>
-
-            <div className="product-info">
-                <h1>{product.title}</h1> 
-                <p>{product.description}</p>
-                <p>{product.price} <span>&#8364;</span> </p>
-            </div>    
-
-            <div className="main-img">
-                 <img src={product.images[index]} alt="" />
-            </div>
-                <div className="gallery-img">
+            <div className="product-info">              
+                <div className="detail-img-container">
+                    <div className="gallery-img">
 
                     {product.images
-                         //excludes the image at the current index   
-                         //creates a new array by filtering out elements             
-                        //.filter((i) => i !== index) //filter condition that keeps only the elements for which the index is not equal to the current index.                       
-                        .map((src, i) => (
-                        <img
-                            key={i}//react requires a unique key to update the dom
-                            className="img-detail"
-                            src={src}//set the source URL from the image
-                            alt={product.title}
-                            onClick={() => setIndex(i)}
+                    //excludes the image at the current index   
+                    //creates a new array by filtering out elements             
+                    //.filter((i) => i !== index) //filter condition that keeps only the elements for which the index is not equal to the current index.                       
+                    .map((src, i) => (
+                    <img
+                        key={i}//react requires a unique key to update the dom
+                        className="img-detail"
+                        src={src}//set the source URL from the image
+                        alt={product.title}
+                        onClick={() => setIndex(i)}
                         />
                     ))}
 
-                </div>                                          
-                         
-                <Link to={`/products/${productId}/update`}>
-                    <Button className="detail-button" variant="filled" type='button'>Update</Button>
-                </Link>
+                    </div> 
 
-                <Button className="detail-button" variant="filled" type="button" onClick={handleDelete}>Delete Product</Button>
+                    <div className="main-img">
+                        <img src={product.images[index]} alt="" />
+                    </div> 
 
+                    <div className="detail-btn-container"> 
+                        <h2>{product.title}</h2> 
+                        <div className="detail-text">
+                            <p>{product.description}</p>
+                        </div>
+                        <p>{product.price} <span>&#8364;</span> </p>
+                        <br />     
+                        <Link to={`/products/${productId}/update`}>
+                            <Button className="detail-button" variant="filled" type='button'>Update</Button>
+                        </Link>
+                        
+                        <Button className="detail-button" variant="filled" onClick={handleCart} type="button">Add to Cart</Button> 
+                        <Button variant="outline" color="red" className="detail-button" type="button" onClick={handleDelete}>Delete Product</Button>
+                    </div> 
+                                                    
+                </div> 
+            </div>   
 
-                <Button className="detail-button" variant="filled" onClick={handleCart} type="button">Add to Cart</Button>                                     
             </>
                      
          : null} 
