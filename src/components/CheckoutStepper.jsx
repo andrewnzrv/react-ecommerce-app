@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Stepper, Button, Box, Group, TextInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
+import CartPreview from "../components/CartPreview";
+import { Link } from "react-router-dom";
 
-function CheckoutStepper() {
+function CheckoutStepper({ cart, setCart }) {
   const [active, setActive] = useState(0);
   const [highestStepVisited, setHighestStepVisited] = useState(active);
 
@@ -53,6 +55,8 @@ function CheckoutStepper() {
           allowStepSelect={shouldAllowSelectStep(0)}
         >
           <Box maw={340} mx="auto">
+            <CartPreview cart={cart} />
+
             <TextInput
               label="First Name"
               {...form.getInputProps("firstName")}
@@ -78,6 +82,8 @@ function CheckoutStepper() {
           allowStepSelect={shouldAllowSelectStep(1)}
         >
           <Box maw={340} mx="auto">
+            <CartPreview cart={cart} />
+
             <TextInput label="Card Number" {...form.getInputProps("cardNum")} />
             <TextInput
               label="Card Holder"
@@ -95,6 +101,8 @@ function CheckoutStepper() {
         </Stepper.Step>
         <Stepper.Step label="Review" allowStepSelect={shouldAllowSelectStep(2)}>
           <Box maw={340} mx="auto">
+            <CartPreview cart={cart} />
+
             <p>
               {form.values.firstName} {form.values.lastName}
             </p>
@@ -108,17 +116,40 @@ function CheckoutStepper() {
         </Stepper.Step>
 
         <Stepper.Completed>
-          Completed, click back button to get to previous step
+          <p>Thank you for your purchase!</p>
+          <CartPreview cart={cart} />
         </Stepper.Completed>
       </Stepper>
 
       <Group justify="center" mt="xl">
-        <Button variant="default" onClick={() => handleStepChange(active - 1)}>
-          Back
-        </Button>
-        <Button type="submit" onClick={() => handleStepChange(active + 1)}>
-          Next step
-        </Button>
+        {active === 0 && (
+          <Link to="/cart">
+            <Button variant="default">Return to Cart</Button>
+          </Link>
+        )}
+        {(active <= 2) & (active > 0) && (
+          <Button
+            variant="default"
+            onClick={() => handleStepChange(active - 1)}
+          >
+            Back
+          </Button>
+        )}
+        {active < 2 && (
+          <Button type="submit" onClick={() => handleStepChange(active + 1)}>
+            Next step
+          </Button>
+        )}
+        {active === 2 && (
+          <Button type="submit" onClick={() => handleStepChange(active + 1)}>
+            Confirm order
+          </Button>
+        )}
+        {active === 3 && (
+          <Link to="/product">
+            <Button onClick={() => setCart([])}>Find more products</Button>
+          </Link>
+        )}
       </Group>
     </>
   );
