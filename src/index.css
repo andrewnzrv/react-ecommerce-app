@@ -47,7 +47,7 @@ ul {
     display: flex;
     justify-content: center;
     width: 100%;
-  
+    
 }
 
 .grid {
@@ -233,4 +233,4 @@ form {
 label {
     margin-bottom: 20px;
 }
-  
+
