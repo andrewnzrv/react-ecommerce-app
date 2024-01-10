@@ -1,0 +1,15 @@
+.content {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 100px;
+  justify-content: center;
+}
+
+.form {
+  width: 40%;
+}
+
+.thankYou {
+  text-align: center;
+  margin: 100px 0 100px 0;
+}
