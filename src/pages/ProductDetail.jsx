@@ -92,6 +92,7 @@ const ProductDetail = ({ setCart }) => {
                   </p>
                   
                   <Link to={`/products/${productId}/update`}>
+                  
                     <Button
                       className="detail-button"
                       variant="filled"

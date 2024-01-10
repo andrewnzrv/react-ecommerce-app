@@ -63,7 +63,7 @@ const Product = () => {
                     <Button variant="outline" onClick={() => filterItems(cat.name)}>{cat.name}</Button>
                 </div>
                 ))}
-        </ul>
+            </ul>
     </div> 
     
     <div className="container-main">
