@@ -2,7 +2,10 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import '@mantine/core/styles.css';
+import { Input } from "@mantine/core";
+import { TextInput } from "@mantine/core";
+import "@mantine/core/styles.css";
+import { Button } from "@mantine/core";
 
 
 const API_URL = 'https://api.escuelajs.co/api/v1/products'
@@ -71,22 +74,25 @@ const EditProduct = () => {
 
     return ( 
     <>
-     <h1>Details of the product with id {productId}</h1>
+    <div className="edit-form">
+     <h2>{title}</h2>
      <form onSubmit={handleSubmit}>
         <label>
           Title:
-          <input value={title} onChange={event => setTitle(event.target.value)} required />
+          <Input value={title} onChange={event => setTitle(event.target.value)} required />
         </label>
         <label>
           Description:
-          <input value={description} onChange={event => setDescription(event.target.value)} required />
+          <Input className="size" value={description} onChange={event => setDescription(event.target.value)} required />
         </label>
         <label>
           Price:
-          <input value={price} onChange={event => setPrice(event.target.value)} required/>
+          <Input value={price} onChange={event => setPrice(event.target.value)} required/>
         </label>
-        <button type='submit'>Update</button>
+        
       </form>
+      <Button type='submit'>Update</Button>
+    </div>  
     </> 
     )
 }

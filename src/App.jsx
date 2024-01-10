@@ -8,6 +8,8 @@ import EditProduct from "./pages/EditProduct";
 import Cart from "./pages/Cart";
 import { useState } from "react";
 import CheckoutPage from "./pages/CheckoutPage";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
   //HIGHER ORDER STATE FOR THE DATA
@@ -25,7 +27,10 @@ function App() {
             <Link to="/product/new">Add a new product</Link>
           </div>
           <div className="cart">
-            <Link to="/cart">Cart({cart.length})</Link>
+            <Link to="/cart">
+              <FontAwesomeIcon icon={faShoppingCart} />
+              ({cart.length})
+            </Link>
           </div>
         </ul>
       </nav>
