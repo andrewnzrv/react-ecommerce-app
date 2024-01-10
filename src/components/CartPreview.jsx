@@ -5,16 +5,20 @@ function CartPreview({ cart }) {
   cart.map((product) => (priceTotal += product.price));
 
   return (
-    <div>
-      <ul>
+    <div className={styles.cartPreview}>
+      <h4>Order overview</h4>
+      <ul className={styles.productList}>
         {cart.map((product) => (
-          <div>
+          <div className={styles.product}>
             <p>{product.title}</p>
-            <p>{product.price}</p>
+            <p>€{product.price}</p>
           </div>
         ))}
       </ul>
-      <div>Total price: {priceTotal}</div>
+      <div className={styles.priceTotal}>
+        <p>Total price:</p>
+        <p>€{priceTotal}</p>
+      </div>
     </div>
   );
 }

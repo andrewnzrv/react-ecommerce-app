@@ -1,0 +1,9 @@
+.stepperDiv {
+  padding-bottom: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.stepperContent {
+  width: 80%;
+}
