@@ -1,6 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Figtree:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
 body {
-    font-family: avenir;
-    background-color: #FFFFFF;
+    font-family: 'Figtree', sans-serif;
+    background-color: #ffffff;
     height: 100vh; 
     margin: 0;
 
@@ -15,6 +17,7 @@ ul {
     display: flex;
     justify-content: center;
     width: 100%;
+  
     
 }
 
@@ -25,15 +28,20 @@ ul {
     grid-gap: 40px;
     justify-content: center;  
     padding-top: 20px;
+    padding: 40px 80px;
+
     
 }
 
 /*Navbar*/
 .nav {
+    margin: 0;
     display: flex;
     justify-content: space-between;
     padding: 40px 80px;
     color: black;
+    font-weight: 500;
+    
 }
 
 h3 {
@@ -53,7 +61,9 @@ h3 {
 .links a {
     margin-right: 100px;
 }
-
+.links a:hover {
+    opacity: 0.5;
+}
 .cart {
     display: flex;
     justify-content: flex-end;
@@ -183,7 +193,13 @@ a {
     color: black;
 }
 
-label {
-    margin-top: 10px;
-}
 
+form {
+    display: flex;
+    flex-direction: column;
+}
+  
+label {
+    margin-bottom: 20px;
+}
+  

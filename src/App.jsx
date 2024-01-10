@@ -22,7 +22,7 @@ function App() {
           <div className="links">
             <Link to="/">Home</Link>
             <Link to="/product">Products</Link>
-            <Link to="/product/new">Add New Product</Link>
+            <Link to="/product/new">Add a new product</Link>
           </div>
           <div className="cart">
             <Link to="/cart">Cart({cart.length})</Link>

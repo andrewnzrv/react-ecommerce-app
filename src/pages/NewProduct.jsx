@@ -52,20 +52,20 @@ const NewProduct = () => {
   return (
     <>
       <div className="add-grid">
-        <h1>New Product</h1>
+        <h2>Add a new product</h2>
         <form onSubmit={handleSubmit}>
           <label>
             Title:
-            <Input
+            <Input 
               placeholder="Title"
               value={title}
               onChange={(event) => setTitle(event.target.value)}
               required
             />
           </label>
-          <label>
+          <label className="margin">
             Description:
-            <Input
+            <Input 
               placeholder="Description"
               value={description}
               onChange={(event) => setDescription(event.target.value)}
@@ -74,7 +74,7 @@ const NewProduct = () => {
           </label>
           <label>
             Price:
-            <Input
+            <Input 
               placeholder="Input component"
               value={price}
               onChange={(event) => setPrice(event.target.value)}
