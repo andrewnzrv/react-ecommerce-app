@@ -58,6 +58,7 @@ function CheckoutStepper({ cart, setCart }) {
           <Box maw={1020} mx="auto" className={styles.content}>
             <CartPreview cart={cart} />
             <div className={styles.form}>
+              <h2>Address</h2>
               <TextInput
                 label="First Name"
                 {...form.getInputProps("firstName")}
@@ -84,6 +85,7 @@ function CheckoutStepper({ cart, setCart }) {
           <Box maw={1020} mx="auto" className={styles.content}>
             <CartPreview cart={cart} />
             <div className={styles.form}>
+              <h2>Payment details</h2>
               <TextInput
                 label="Card Number"
                 {...form.getInputProps("cardNum")}
@@ -108,7 +110,7 @@ function CheckoutStepper({ cart, setCart }) {
             <CartPreview cart={cart} />
 
             <div className={styles.form}>
-              <h4>Review your personal details</h4>
+              <h2>Review your personal details</h2>
               <p>
                 {form.values.firstName} {form.values.lastName}
               </p>
@@ -125,7 +127,7 @@ function CheckoutStepper({ cart, setCart }) {
 
         <Stepper.Completed>
           <div className={styles.thankYou}>
-            <p>Thank you for your purchase!</p>
+            <h2>Thank you for your purchase!</h2>
           </div>
         </Stepper.Completed>
       </Stepper>

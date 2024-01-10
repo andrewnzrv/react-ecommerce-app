@@ -2,10 +2,6 @@
   width: 340px;
 }
 
-.productList {
-  line-height: 0.5;
-}
-
 .product {
   display: flex;
   justify-content: space-between;
