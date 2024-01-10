@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Input } from "@mantine/core";
-import { TextInput } from "@mantine/core";
 import "@mantine/core/styles.css";
 import { Button } from "@mantine/core";
 
@@ -23,7 +22,7 @@ const NewProduct = () => {
       description,
       price,
       categoryId: 1,
-      images: ["https://picsum.photos/200"],
+      images: ["https://picsum.photos/200", "https://example.com/another-image.jpg"],
     };
 
     try {
@@ -32,8 +31,11 @@ const NewProduct = () => {
         headers: {
           "Content-Type": "application/json",
         },
+        
         body: JSON.stringify(payload),
+       
       });
+      
       //console.log(JSON.stringify(payload));
 
       if (response.status === 201) {
@@ -82,9 +84,9 @@ const NewProduct = () => {
             />
           </label>
 
-         
+          <Button type="submit">Create</Button>
         </form>
-        <Button type="submit">Create</Button>
+        
       </div>
     </>
   );

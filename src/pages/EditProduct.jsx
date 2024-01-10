@@ -56,8 +56,9 @@ const EditProduct = () => {
                 },
                 body: JSON.stringify(payload),
                 
-            })
-            //console.log(JSON.stringify(payload));       
+            })       
+            //console.log(JSON.stringify(payload));    
+    
             if (response.ok) {
                 const updatedProduct = await response.json(); // Store the JSON data
                 console.log(updatedProduct);
@@ -89,9 +90,9 @@ const EditProduct = () => {
           Price:
           <Input value={price} onChange={event => setPrice(event.target.value)} required/>
         </label>
-        
+        <Button type='submit'>Update</Button> 
       </form>
-      <Button type='submit'>Update</Button>
+      
     </div>  
     </> 
     )
