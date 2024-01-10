@@ -9,18 +9,18 @@ body {
 
 .homepage {
     padding: 40px 80px;
-    width: 100%; /* Use 100% width for responsiveness */
+    width: 100%; 
     color: #1c7ed6;
     font-weight: 900;
+}
+
+.text-section {
+    width: 800px;
 }
 
 .content {
     display: flex;
     align-items: center;
-}
-
-.text-section {
-    flex: 1; /* Allow text section to take up remaining space */
 }
 
 .thin-text {
@@ -34,10 +34,11 @@ body {
     width: 500px;
 }
 
-h4{
+h4 {
     font-size: 4rem;
     line-height: 1.1;
 }
+
 ul {
     padding: 0;
 }
@@ -46,20 +47,15 @@ ul {
 .container-main {
     display: flex;
     justify-content: center;
-    width: 100%;
-    
+    width: 100%;    
 }
 
-.grid {
-    
+.grid  {  
     display: grid;
     grid-template-columns: repeat(3, 1fr); 
     grid-gap: 40px;
     justify-content: center;  
-    padding-top: 20px;
-    padding: 40px 80px;
-
-    
+    padding: 20px 80px;  
 }
 
 /*Navbar*/
@@ -79,7 +75,6 @@ h3 {
     padding: 10px;
     font-size: 2.5rem;  
 }
-
 
 .links{
     display: flex;
@@ -172,11 +167,11 @@ img {
     position: relative;
     padding: 10px;
     margin-left: 30px;
-    width: 500px;  
+    width: 700px;  
 }
   
 .detail-text {
-    line-height: 1.8;
+    line-height: 1.6;
 }
   
 .main-img {
@@ -185,9 +180,9 @@ img {
 }
   
 .img-detail {
-    width: 100%; /* Ensure images fill their container */
+    width: 100%; 
     cursor: pointer;
-    /* Add any other styles as needed */
+    
 }
   
 .detail-button {
@@ -216,6 +211,7 @@ h1 {
     text-decoration: none;
     color: black;
 }
+
 p {
     color: black;
 }
@@ -234,3 +230,10 @@ label {
     margin-bottom: 20px;
 }
 
+.add-button {
+    width: 20%;
+}
+
+.edit-button {
+    width: 20%;
+}

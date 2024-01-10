@@ -22,7 +22,7 @@ const NewProduct = () => {
       description,
       price,
       categoryId: 1,
-      images: ["https://picsum.photos/200", "https://example.com/another-image.jpg"],
+      images: ["https://picsum.photos/200/300"],
     };
 
     try {
@@ -84,7 +84,7 @@ const NewProduct = () => {
             />
           </label>
 
-          <Button type="submit">Create</Button>
+          <Button className="add-button" type="submit">Create</Button>
         </form>
         
       </div>

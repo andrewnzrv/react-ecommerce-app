@@ -90,7 +90,7 @@ const EditProduct = () => {
           Price:
           <Input value={price} onChange={event => setPrice(event.target.value)} required/>
         </label>
-        <Button type='submit'>Update</Button> 
+        <Button className="edit-button" type='submit'>Update</Button> 
       </form>
       
     </div>  
