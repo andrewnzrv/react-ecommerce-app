@@ -1,6 +1,8 @@
 import "@mantine/core/styles.css";
 import { Button } from "@mantine/core";
 import { Link } from "react-router-dom";
+import React from "react"; 
+import image from "/src/image.jpg"; 
 
 
 const Homepage = () => {
@@ -16,7 +18,7 @@ const Homepage = () => {
                     </Link>    
                 </div>
                 <div className="image-section">
-                    <img className="hero-image" src="../src/image.jpg" alt="" />
+                    <img className="hero-image" src={image} alt="" />
                 </div>
             </div>
         </div>
