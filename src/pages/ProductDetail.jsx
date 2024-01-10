@@ -90,7 +90,7 @@ const ProductDetail = ({ setCart }) => {
                   <p className="price-detail">
                     {product.price} <span>&#8364;</span>{" "}
                   </p>
-                  <br />
+                  
                   <Link to={`/products/${productId}/update`}>
                     <Button
                       className="detail-button"

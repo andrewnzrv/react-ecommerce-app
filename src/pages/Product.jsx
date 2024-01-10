@@ -55,7 +55,7 @@ const Product = () => {
     return (
     <> 
      
-        <h1 className="main-title">Our Products</h1>
+        <h3>Discover Our Products</h3>
         <div className="filter-ctn"> 
             <ul>
                 {categories.map((cat) => (

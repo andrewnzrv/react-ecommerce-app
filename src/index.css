@@ -1,16 +1,22 @@
 body {
     font-family: avenir;
     background-color: #FFFFFF;
+    
   
 }
 /*Product Section - GRID*/
-.main-title {
+
+
+h3 {
     display: flex;
     justify-content: center;
     text-align: center;
     padding: 50px;
-    font-size: 1.5rem; 
+    font-size: 2.5rem;
+    
 }
+
+
 .grid {
     display: grid;
     padding: 40px 80px;
@@ -26,6 +32,7 @@ body {
     display: flex;
     justify-content: space-between;
     padding: 40px 80px;
+    padding-left: 80px;
     color: black;
 }
 
@@ -56,7 +63,7 @@ body {
 }
 
 img {
-    width: 80%;
+    width: 400px;
     border: 1px solid black;
     border-radius: 5px;
 }
@@ -72,7 +79,6 @@ img {
     cursor: pointer;
 }
 
-=======
 
 .filter-ctn {
     display: flex;
@@ -113,24 +119,24 @@ img {
     display: flex;
     flex-shrink: 1;
     flex-direction: column;
-    width: 5%;
+    width: 80px;
     margin-right: 20px; /* Adjust the margin as needed */
 }
   
 .detail-btn-container {
-    margin-top: 50px;
-    margin-left: -70px;
+    position: relative;
+    padding: 10px;
+    margin-left: 30px;
+    width: 500px;  
 }
   
 .detail-text {
-    width: 70%;
     line-height: 1.8;
 }
   
 .main-img {
     display: flex;
-    flex-direction: column;
-    width: 40%;
+    flex-direction: column; 
 }
   
 .img-detail {
