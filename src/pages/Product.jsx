@@ -65,7 +65,9 @@ const Product = () => {
                 ))}
         </ul>
     </div> 
-   
+    
+    <div className="container-main">
+
         <ul className="grid">
             
         {(filter.length > 0 ? filter : product).map((products) => (
@@ -82,6 +84,7 @@ const Product = () => {
           </div>
         ))}
       </ul>
+    </div>  
 
   
     </>   
