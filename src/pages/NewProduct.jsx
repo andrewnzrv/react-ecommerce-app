@@ -51,7 +51,7 @@ const NewProduct = () => {
 
   return (
     <>
-      <div className="add-grid">
+      <div className="add-form">
         <h2>Add a new product</h2>
         <form onSubmit={handleSubmit}>
           <label>
@@ -82,8 +82,9 @@ const NewProduct = () => {
             />
           </label>
 
-          <Button type="submit">Create</Button>
+         
         </form>
+        <Button type="submit">Create</Button>
       </div>
     </>
   );
