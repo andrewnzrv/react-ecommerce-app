@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Input } from "@mantine/core";
 import "@mantine/core/styles.css";
 import { Button } from "@mantine/core";
+import { Textarea } from '@mantine/core';
 
 const API_URL = "https://api.escuelajs.co/api/v1/products";
 
@@ -22,7 +23,7 @@ const NewProduct = () => {
       description,
       price,
       categoryId: 1,
-      images: ["https://picsum.photos/200/300"],
+      images: ["https://picsum.photos/200","https://picsum.photos/200","https://picsum.photos/200"],
     };
 
     try {
@@ -35,11 +36,9 @@ const NewProduct = () => {
         body: JSON.stringify(payload),
        
       });
-      
-      //console.log(JSON.stringify(payload));
 
       if (response.status === 201) {
-        const newProductJson = await response.json(); // Store the JSON data
+        const newProductJson = await response.json(); 
         console.log(newProductJson);
         // Redirect to the product detail page
         navigate(`/products/${newProductJson.id}`);
@@ -59,7 +58,7 @@ const NewProduct = () => {
           <label>
             Title:
             <Input 
-              placeholder="Title"
+              placeholder="Add a title"
               value={title}
               onChange={(event) => setTitle(event.target.value)}
               required
@@ -67,8 +66,8 @@ const NewProduct = () => {
           </label>
           <label className="margin">
             Description:
-            <Input 
-              placeholder="Description"
+            <Textarea 
+              placeholder="Add your description"
               value={description}
               onChange={(event) => setDescription(event.target.value)}
               required

@@ -3,9 +3,9 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { Input } from "@mantine/core";
-import { TextInput } from "@mantine/core";
 import "@mantine/core/styles.css";
 import { Button } from "@mantine/core";
+import { Textarea } from '@mantine/core';
 
 
 const API_URL = 'https://api.escuelajs.co/api/v1/products'
@@ -23,7 +23,6 @@ const EditProduct = () => {
             const response = await fetch(`${API_URL}/${productId}`);
                 if(response.ok) {
                     const productData = await response.json()
-                    //console.log(productData)
                     setTitle(productData.title)
                     setDescription(productData.description)
                     setPrice(productData.price)                 
@@ -35,11 +34,10 @@ const EditProduct = () => {
 
     useEffect(() => {
         fetchProduct()
-        //console.log('Inside useEffect, productId:', productId);
     },[])
 
     const handleSubmit = async event => {
-        //prevent the refresh of the page
+
         event.preventDefault()
         //
         const payload = {
@@ -57,16 +55,14 @@ const EditProduct = () => {
                 body: JSON.stringify(payload),
                 
             })       
-            //console.log(JSON.stringify(payload));    
     
             if (response.ok) {
-                const updatedProduct = await response.json(); // Store the JSON data
+                const updatedProduct = await response.json(); 
                 console.log(updatedProduct);
-          
-                // Redirect to the product detail page
+
                 navigate(`/products/${productId}`);
               } else {
-                //console.log(`Error: ${response.status}`);
+
               }
             } catch (error) {
               console.log(error);
@@ -84,7 +80,7 @@ const EditProduct = () => {
         </label>
         <label>
           Description:
-          <Input className="size" value={description} onChange={event => setDescription(event.target.value)} required />
+          <Textarea className="size" value={description} onChange={event => setDescription(event.target.value)} required />
         </label>
         <label>
           Price:

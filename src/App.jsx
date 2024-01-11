@@ -13,9 +13,7 @@ import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
   //HIGHER ORDER STATE FOR THE DATA
-
   const [cart, setCart] = useState([]);
-
 
   return (
     <>
