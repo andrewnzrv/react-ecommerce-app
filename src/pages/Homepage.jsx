@@ -2,7 +2,7 @@ import "@mantine/core/styles.css";
 import { Button } from "@mantine/core";
 import { Link } from "react-router-dom";
 import React from "react"; 
-import image from "/src/assets/image2.jpg"; 
+import image from "/src/assets/image2.png"; 
 
 
 const Homepage = () => {
