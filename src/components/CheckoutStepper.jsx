@@ -38,7 +38,20 @@ function CheckoutStepper({ cart, setCart }) {
     validate: (values) => {
       if (active === 0) {
         return {
+          firstName: values.firstName ? null : "Invalid first name",
+          lastName: values.lastName ? null : "Invalid last name",
+          postcode: values.postcode ? null : "Invalid postcode",
+          city: values.city ? null : "Invalid city",
+          street: values.street ? null : "Invalid street",
+          houseNum: values.houseNum ? null : "Invalid house number",
           email: /^\S+@\S+$/.test(values.email) ? null : "Invalid email",
+        };
+      } else if (active === 1) {
+        return {
+          cardNum: values.cardNum ? null : "Invalid card number",
+          cardHolder: values.cardHolder ? null : "Invalid card holder",
+          expDate: values.expDate ? null : "Invalid expiration date",
+          securityCode: values.securityCode ? null : "Invalid security code",
         };
       }
     },
@@ -58,6 +71,7 @@ function CheckoutStepper({ cart, setCart }) {
           <Box maw={1020} mx="auto" className={styles.content}>
             <CartPreview cart={cart} />
             <div className={styles.form}>
+              <h2>Address</h2>
               <TextInput
                 label="First Name"
                 {...form.getInputProps("firstName")}
@@ -84,6 +98,7 @@ function CheckoutStepper({ cart, setCart }) {
           <Box maw={1020} mx="auto" className={styles.content}>
             <CartPreview cart={cart} />
             <div className={styles.form}>
+              <h2>Payment details</h2>
               <TextInput
                 label="Card Number"
                 {...form.getInputProps("cardNum")}
@@ -108,7 +123,7 @@ function CheckoutStepper({ cart, setCart }) {
             <CartPreview cart={cart} />
 
             <div className={styles.form}>
-              <h4>Review your personal details</h4>
+              <h2>Review your personal details</h2>
               <p>
                 {form.values.firstName} {form.values.lastName}
               </p>
@@ -119,13 +134,14 @@ function CheckoutStepper({ cart, setCart }) {
               <p>{form.values.email}</p>
               <p>Card number: {form.values.cardNum}</p>
               <p>Expiration date: {form.values.expDate}</p>
+              <p>Security code: ***</p>
             </div>
           </Box>
         </Stepper.Step>
 
         <Stepper.Completed>
           <div className={styles.thankYou}>
-            <p>Thank you for your purchase!</p>
+            <h2>Thank you for your purchase!</h2>
           </div>
         </Stepper.Completed>
       </Stepper>
