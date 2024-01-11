@@ -11,7 +11,7 @@ function CartPreview({ cart }) {
         {cart.map((product) => (
           <div className={styles.product}>
             <p>{product.title}</p>
-            <p>{product.price} €</p>
+            <p className={styles.productPrice}>{product.price} €</p>
           </div>
         ))}
       </ul>

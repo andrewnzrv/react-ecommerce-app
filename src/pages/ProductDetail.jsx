@@ -5,8 +5,9 @@ import { Link } from "react-router-dom";
 import { Input } from "@mantine/core";
 import { TextInput } from "@mantine/core";
 import "@mantine/core/styles.css";
-import { Button } from "@mantine/core";
+import { Button, Breadcrumbs, Anchor } from "@mantine/core";
 import Cart from "./Cart";
+import { notifications } from "@mantine/notifications";
 
 const API_URL = "https://api.escuelajs.co/api/v1/products";
 
@@ -16,6 +17,18 @@ const ProductDetail = ({ setCart }) => {
   const [index, setIndex] = useState(0);
   const navigate = useNavigate();
 
+  const [productTitleBreadcrumbs, setProductTitleBreadcrumbs] = useState("");
+
+  const items = [
+    { title: "Home", href: "/" },
+    { title: "Products", href: "/product" },
+    { title: `${productTitleBreadcrumbs}`, href: `/products/${productId}` },
+  ].map((item, index) => (
+    <Anchor href={item.href} key={index}>
+      {item.title}
+    </Anchor>
+  ));
+
   const fetchProduct = async () => {
     try {
       const response = await fetch(`${API_URL}/${productId}`);
@@ -23,6 +36,7 @@ const ProductDetail = ({ setCart }) => {
         const productData = await response.json();
         //console.log(productData)
         setProduct(productData);
+        setProductTitleBreadcrumbs(productData.title);
       }
     } catch (error) {
       console.log(error);
@@ -61,19 +75,19 @@ const ProductDetail = ({ setCart }) => {
       <div className="product-detail">
         {product ? (
           <>
+            <Breadcrumbs>{items}</Breadcrumbs>
             <div className="product-info">
               <div className="detail-img-container">
                 <div className="gallery-img">
-                  {product.images
-                    .map((src, i) => (
-                      <img
-                        key={i} 
-                        className="img-detail"
-                        src={src} 
-                        alt={product.title}
-                        onClick={() => setIndex(i)}
-                      />
-                    ))}
+                  {product.images.map((src, i) => (
+                    <img
+                      key={i}
+                      className="img-detail"
+                      src={src}
+                      alt={product.title}
+                      onClick={() => setIndex(i)}
+                    />
+                  ))}
                 </div>
 
                 <div className="main-img">
@@ -88,9 +102,8 @@ const ProductDetail = ({ setCart }) => {
                   <p className="price-detail">
                     {product.price} <span>&#8364;</span>{" "}
                   </p>
-                  
+
                   <Link to={`/products/${productId}/update`}>
-                  
                     <Button
                       className="detail-button"
                       variant="filled"
@@ -103,7 +116,13 @@ const ProductDetail = ({ setCart }) => {
                   <Button
                     className="detail-button"
                     variant="filled"
-                    onClick={handleCart}
+                    onClick={() => {
+                      handleCart();
+                      notifications.show({
+                        message: "Product is added to your cart",
+                        autoClose: 2000,
+                      });
+                    }}
                     type="button"
                   >
                     Add to Cart
@@ -113,7 +132,14 @@ const ProductDetail = ({ setCart }) => {
                     color="red"
                     className="detail-button"
                     type="button"
-                    onClick={handleDelete}
+                    onClick={() => {
+                      handleDelete();
+                      notifications.show({
+                        message: "Product is deleted from the store",
+                        autoClose: 2000,
+                        color: "red",
+                      });
+                    }}
                   >
                     Delete Product
                   </Button>
