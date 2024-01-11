@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "@mantine/core/styles.css";
 import { Button } from "@mantine/core";
 import { Grid } from '@mantine/core';
-
+import { Tooltip, Chip } from '@mantine/core';
 
 const API_URL = 'https://api.escuelajs.co/api/v1/products'
 const API_URL_CATEGORY = 'https://api.escuelajs.co/api/v1/categories'
@@ -73,14 +73,17 @@ const Product = () => {
         {(filter.length > 0 ? filter : product).map((products) => (
           <div key={products.id}>
             <Link to={`/products/${products.id}`}>
-              <img className="img" src={products.images[0]} alt={products.title} />
-              <div className="">
+              <img className="img" src={products.images[0]} alt={products.title} />        
+              <div>
                 <h1>{products.title}</h1>
-                <p>
-                  {products.price} <span>&#8364;</span>{" "}
+                <p className="price">
+                  {products.price}<span>&#8364;</span>
                 </p>
+                
+                            
               </div>
             </Link>
+            
           </div>
         ))}
       </ul>

@@ -42,12 +42,14 @@ h4 {
 ul {
     padding: 0;
 }
+
 /*Product Section - GRID*/
 
 .container-main {
-    display: flex;
+ 
+    display:flex;
     justify-content: center;
-    width: 100%;    
+    width: 100%;  
 }
 
 .grid  {  
@@ -56,6 +58,8 @@ ul {
     grid-gap: 40px;
     justify-content: center;  
     padding: 20px 80px;  
+    max-width: 1200px;
+    width: 100%;
 }
 
 /*Navbar*/
@@ -66,6 +70,10 @@ ul {
     padding: 40px 80px;
     color: black;
     font-weight: 500;   
+}
+
+.price {
+    font-weight: 600;
 }
 
 h3 {
@@ -106,7 +114,7 @@ h3 {
 img {
     width: 400px;
     border: 1px solid black;
-    border-radius: 5px;
+    border-radius: 5px;    
 }
 
 .img-detail {
@@ -120,12 +128,10 @@ img {
     cursor: pointer;
 }
 
-
 .filter-ctn {
     display: flex;
     padding: 10px 20px;
     justify-content: center;
- 
 }
 
 .filter-ctn ul {
@@ -141,12 +147,12 @@ img {
 /*Product Detail Section*/
 .product-detail {
     padding: 10px 80px;
-  }
+}
   
 .product-info {
     padding: 10px 0px;
     padding-top: 100px;
-    line-height: 1.5; /* Adjust the line height as needed */
+    line-height: 1.5; 
   }
   
 .detail-img-container {
@@ -160,12 +166,11 @@ img {
     flex-shrink: 1;
     flex-direction: column;
     width: 80px;
-    margin-right: 20px; /* Adjust the margin as needed */
+    margin-right: 20px; 
 }
   
 .detail-btn-container {
     position: relative;
-    padding: 10px;
     margin-left: 30px;
     width: 700px;  
 }
@@ -215,11 +220,11 @@ h1 {
 p {
     color: black;
 }
+
 a {
     text-decoration: none;
     color: black;
 }
-
 
 form {
     display: flex;
@@ -237,3 +242,4 @@ label {
 .edit-button {
     width: 20%;
 }
+

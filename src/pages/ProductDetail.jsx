@@ -13,7 +13,6 @@ const API_URL = "https://api.escuelajs.co/api/v1/products";
 const ProductDetail = ({ setCart }) => {
   const { productId } = useParams();
   const [product, setProduct] = useState();
-  //console.log("this is",product)
   const [index, setIndex] = useState(0);
   const navigate = useNavigate();
 
@@ -54,6 +53,7 @@ const ProductDetail = ({ setCart }) => {
       return [...cart, product];
     });
   };
+
   //console.log("this is the product", productId)
 
   return (
@@ -65,13 +65,11 @@ const ProductDetail = ({ setCart }) => {
               <div className="detail-img-container">
                 <div className="gallery-img">
                   {product.images
-                    //creates a new array by filtering out elements
-                    //.filter((i) => i !== index) //filter condition that keeps only the elements for which the index is not equal to the current index.
                     .map((src, i) => (
                       <img
-                        key={i} //react requires a unique key to update the dom
+                        key={i} 
                         className="img-detail"
-                        src={src} //set the source URL from the image
+                        src={src} 
                         alt={product.title}
                         onClick={() => setIndex(i)}
                       />
