@@ -7,6 +7,14 @@
   justify-content: space-between;
 }
 
+.product > * {
+  min-width: 100px;
+}
+
+.productPrice {
+  text-align: end;
+}
+
 .priceTotal {
   display: flex;
   justify-content: space-between;
