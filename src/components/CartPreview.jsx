@@ -6,7 +6,7 @@ function CartPreview({ cart }) {
 
   return (
     <div className={styles.cartPreview}>
-      <h2>Your cart</h2>
+      <h2>Your cart ({cart.length} items)</h2>
       <ul className={styles.productList}>
         {cart.map((product) => (
           <div className={styles.product}>

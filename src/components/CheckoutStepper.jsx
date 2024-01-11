@@ -38,7 +38,20 @@ function CheckoutStepper({ cart, setCart }) {
     validate: (values) => {
       if (active === 0) {
         return {
+          firstName: values.firstName ? null : "Invalid first name",
+          lastName: values.lastName ? null : "Invalid last name",
+          postcode: values.postcode ? null : "Invalid postcode",
+          city: values.city ? null : "Invalid city",
+          street: values.street ? null : "Invalid street",
+          houseNum: values.houseNum ? null : "Invalid house number",
           email: /^\S+@\S+$/.test(values.email) ? null : "Invalid email",
+        };
+      } else if (active === 1) {
+        return {
+          cardNum: values.cardNum ? null : "Invalid card number",
+          cardHolder: values.cardHolder ? null : "Invalid card holder",
+          expDate: values.expDate ? null : "Invalid expiration date",
+          securityCode: values.securityCode ? null : "Invalid security code",
         };
       }
     },
@@ -121,6 +134,7 @@ function CheckoutStepper({ cart, setCart }) {
               <p>{form.values.email}</p>
               <p>Card number: {form.values.cardNum}</p>
               <p>Expiration date: {form.values.expDate}</p>
+              <p>Security code: ***</p>
             </div>
           </Box>
         </Stepper.Step>
