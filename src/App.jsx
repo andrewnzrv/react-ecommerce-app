@@ -24,7 +24,7 @@ function App() {
             <Link to="/product">Products</Link>
             <Link to="/product/new">Add a new product</Link>
           </div>
-          <div className="cart">
+          <div className="nav-cart">
             <Link to="/cart">
               <FontAwesomeIcon icon={faShoppingCart} />
               ({cart.length})
