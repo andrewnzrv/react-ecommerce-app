@@ -8,14 +8,14 @@ body {
 }
 
 .homepage {
-    padding: 40px 80px;
-    width: 100%; 
-    color: #1c7ed6;
-    font-weight: 900;
+  padding: 40px 80px;
+  width: 100%;
+  color: #1c7ed6;
+  font-weight: 900;
 }
 
 .text-section {
-    width: 800px;
+  width: 800px;
 }
 
 .content {
@@ -35,8 +35,8 @@ body {
 }
 
 h4 {
-    font-size: 4rem;
-    line-height: 1.1;
+  font-size: 4rem;
+  line-height: 1.1;
 }
 
 ul {
@@ -46,19 +46,19 @@ ul {
 /*Product Section - GRID*/
 
 .container-main {
-    display: flex;
-    justify-content: center;
-    width: 100%;  
+  display: flex;
+  justify-content: center;
+  width: 100%;
 }
 
-.grid  {  
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); 
-    grid-gap: 40px;
-    justify-content: center;  
-    padding: 20px 80px;  
-    max-width: 1200px;
-    width: 100%;
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 40px;
+  justify-content: center;
+  padding: 20px 80px;
+  max-width: 1200px;
+  width: 100%;
 }
 
 /*Navbar*/
@@ -72,7 +72,7 @@ ul {
 }
 
 .price {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 h3 {
@@ -197,15 +197,15 @@ img {
 
 /*Product Detail Section*/
 .product-detail {
-    padding: 10px 80px;
+  padding: 10px 80px;
 }
-  
+
 .product-info {
-    padding: 10px 0px;
-    padding-top: 100px;
-    line-height: 1.5; 
- }
-  
+  padding: 10px 0px;
+  padding-top: 100px;
+  line-height: 1.5;
+}
+
 .detail-img-container {
   display: flex;
   flex-direction: row;
@@ -217,18 +217,17 @@ img {
   flex-shrink: 1;
   flex-direction: column;
   width: 80px;
-  margin-right: 20px; 
-
+  margin-right: 20px;
 }
 
 .detail-btn-container {
-    position: relative;
-    margin-left: 30px;
-    width: 700px;  
+  position: relative;
+  margin-left: 30px;
+  width: 700px;
 }
 
 .detail-text {
-    line-height: 1.6;
+  line-height: 1.6;
 }
 
 .main-img {
@@ -237,8 +236,8 @@ img {
 }
 
 .img-detail {
-    width: 100%; 
-    cursor: pointer;
+  width: 100%;
+  cursor: pointer;
 }
 
 .detail-button {
@@ -287,10 +286,9 @@ label {
 }
 
 .add-button {
-    width: 20%;
+  width: 20%;
 }
 
 .edit-button {
-    width: 20%;
+  width: 20%;
 }
-

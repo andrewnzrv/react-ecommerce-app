@@ -68,7 +68,7 @@ const Cart = ({ cart, setCart }) => {
                   <p>Subtotal</p>
                   <p>Delivery:</p>
                   <p>
-                    <b>Total (Vat included)</b>
+                    <b>Total (VAT included)</b>
                   </p>
                 </div>
                 <div className="price-values">
