@@ -1,5 +1,6 @@
 import { Link, Route, Routes } from "react-router-dom";
 import "./App.css";
+import Error404 from "./pages/Error404";
 import HomePage from "./pages/Homepage";
 import Product from "./pages/Product";
 import ProductDetail from "./pages/ProductDetail";
@@ -47,7 +48,7 @@ function App() {
           path="checkout"
           element={<CheckoutPage cart={cart} setCart={setCart} />}
         />
-        <Route path="*" element={<h1>404 page</h1>} />
+        <Route path="*" element={<Error404/>} />
       </Routes>
     </>
   );
