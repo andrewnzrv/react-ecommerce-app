@@ -2,8 +2,9 @@ import React from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Box, Button } from "@mantine/core";
+import image from "/src/assets/placeholder-img.png";
 
-const Cart = ({ cart, setCart }) => {
+const Cart = ({ cart, setCart, checked }) => {
   const handleDeleteAll = () => {
     setCart([]);
   };
@@ -37,7 +38,7 @@ const Cart = ({ cart, setCart }) => {
                       <div>
                         <img
                           className="img-cart"
-                          src={product.images[0]}
+                          src={checked ? image : product.images[0]}
                           alt={product.title}
                         />
                       </div>

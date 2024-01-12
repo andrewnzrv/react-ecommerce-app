@@ -54,7 +54,10 @@ function App() {
           path="/products/:productId"
           element={<ProductDetail setCart={setCart} checked={checked} />}
         />
-        <Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} />
+        <Route
+          path="/cart"
+          element={<Cart cart={cart} setCart={setCart} checked={checked} />}
+        />
         <Route path="/product" element={<Product checked={checked} />} />
         <Route
           path="checkout"
