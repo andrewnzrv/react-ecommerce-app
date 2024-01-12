@@ -5,11 +5,12 @@ import { Button } from "@mantine/core";
 import { Grid } from "@mantine/core";
 import { Tooltip, Chip } from "@mantine/core";
 import ProductListSkeleton from "../components/ProductListSkeleton";
+import image from "/src/assets/placeholder-img.png";
 
 const API_URL = "https://api.escuelajs.co/api/v1/products";
 const API_URL_CATEGORY = "https://api.escuelajs.co/api/v1/categories";
 
-const Product = () => {
+const Product = ({ checked }) => {
   const [loading, setLoading] = useState(true);
   const [product, setProduct] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -87,11 +88,15 @@ const Product = () => {
             (filter.length > 0 ? filter : product).map((products) => (
               <div key={products.id}>
                 <Link to={`/products/${products.id}`}>
-                  <img
-                    className="img"
-                    src={products.images[0]}
-                    alt={products.title}
-                  />
+                  {checked ? (
+                    <img className="img" src={image} alt={products.title} />
+                  ) : (
+                    <img
+                      className="img"
+                      src="products.images[0]"
+                      alt={products.title}
+                    />
+                  )}
                   <div>
                     <h1>{products.title}</h1>
                     <p className="price">{products.price} €</p>

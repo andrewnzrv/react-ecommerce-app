@@ -71,6 +71,11 @@ ul {
   font-weight: 500;
 }
 
+.nav-icons {
+  display: flex;
+  gap: 30px;
+}
+
 .price {
   font-weight: 600;
 }
