@@ -9,12 +9,15 @@ import EditProduct from "./pages/EditProduct";
 import Cart from "./pages/Cart";
 import { useState } from "react";
 import CheckoutPage from "./pages/CheckoutPage";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { faWandMagicSparkles } from "@fortawesome/free-solid-svg-icons";
+import { Switch } from "@mantine/core";
 
 function App() {
   //HIGHER ORDER STATE FOR THE DATA
   const [cart, setCart] = useState([]);
+  const [checked, setChecked] = useState(false);
 
   return (
     <>
@@ -25,11 +28,20 @@ function App() {
             <Link to="/product">Products</Link>
             <Link to="/product/new">Add a new product</Link>
           </div>
-          <div className="nav-cart">
-            <Link to="/cart">
-              <FontAwesomeIcon icon={faShoppingCart} />
-              ({cart.length})
-            </Link>
+          <div className="nav-icons">
+            <div className="nav-cart">
+              <Link to="/cart">
+                <FontAwesomeIcon icon={faShoppingCart} />({cart.length})
+              </Link>
+            </div>
+
+            <div>
+              <Switch
+                onChange={(event) => {
+                  setChecked(event.currentTarget.checked);
+                }}
+              />
+            </div>
           </div>
         </ul>
       </nav>
@@ -40,15 +52,15 @@ function App() {
         <Route path="/products/:productId/update" element={<EditProduct />} />
         <Route
           path="/products/:productId"
-          element={<ProductDetail setCart={setCart} />}
+          element={<ProductDetail setCart={setCart} checked={checked} />}
         />
         <Route path="/cart" element={<Cart cart={cart} setCart={setCart} />} />
-        <Route path="/product" element={<Product />} />
+        <Route path="/product" element={<Product checked={checked} />} />
         <Route
           path="checkout"
           element={<CheckoutPage cart={cart} setCart={setCart} />}
         />
-        <Route path="*" element={<Error404/>} />
+        <Route path="*" element={<Error404 />} />
       </Routes>
     </>
   );

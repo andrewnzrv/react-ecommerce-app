@@ -8,10 +8,11 @@ import "@mantine/core/styles.css";
 import { Button, Breadcrumbs, Anchor } from "@mantine/core";
 import Cart from "./Cart";
 import { notifications } from "@mantine/notifications";
+import image from "/src/assets/placeholder-img.png";
 
 const API_URL = "https://api.escuelajs.co/api/v1/products";
 
-const ProductDetail = ({ setCart }) => {
+const ProductDetail = ({ setCart, checked }) => {
   const { productId } = useParams();
   const [product, setProduct] = useState();
   const [index, setIndex] = useState(0);
@@ -83,7 +84,7 @@ const ProductDetail = ({ setCart }) => {
                     <img
                       key={i}
                       className="img-detail"
-                      src={src}
+                      src={checked ? image : src}
                       alt={product.title}
                       onClick={() => setIndex(i)}
                     />
@@ -91,7 +92,7 @@ const ProductDetail = ({ setCart }) => {
                 </div>
 
                 <div className="main-img">
-                  <img src={product.images[index]} alt="" />
+                  <img src={checked ? image : product.images[index]} alt="" />
                 </div>
 
                 <div className="detail-btn-container">
