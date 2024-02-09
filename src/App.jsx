@@ -11,8 +11,6 @@ import { useState } from "react";
 import CheckoutPage from "./pages/CheckoutPage";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import { faWandMagicSparkles } from "@fortawesome/free-solid-svg-icons";
-import { Switch } from "@mantine/core";
 
 function App() {
   //HIGHER ORDER STATE FOR THE DATA
@@ -33,14 +31,6 @@ function App() {
               <Link to="/cart">
                 <FontAwesomeIcon icon={faShoppingCart} />({cart.length})
               </Link>
-            </div>
-
-            <div>
-              <Switch
-                onChange={(event) => {
-                  setChecked(event.currentTarget.checked);
-                }}
-              />
             </div>
           </div>
         </ul>

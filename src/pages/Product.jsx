@@ -88,15 +88,12 @@ const Product = ({ checked }) => {
             (filter.length > 0 ? filter : product).map((products) => (
               <div key={products.id}>
                 <Link to={`/products/${products.id}`}>
-                  {checked ? (
-                    <img className="img" src={image} alt={products.title} />
-                  ) : (
-                    <img
-                      className="img"
-                      src="products.images[0]"
-                      alt={products.title}
-                    />
-                  )}
+                  <img
+                    className="img"
+                    src={products.images[0]}
+                    alt={products.title}
+                  />
+
                   <div>
                     <h1>{products.title}</h1>
                     <p className="price">{products.price} €</p>
