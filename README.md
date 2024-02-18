@@ -1,6 +1,6 @@
 # React eCommerce App
 
-This eCommerce app is a single-page application built with React + Vite by [Andrei Nazarov](https://www.linkedin.com/in/andrew-nazarov/) and [Daniele Maselli](https://www.linkedin.com/in/daniele-maselli-878a88101/).
+This eCommerce app is a single-page application built with React by [Andrei Nazarov](https://www.linkedin.com/in/andrew-nazarov/) and [Daniele Maselli](https://www.linkedin.com/in/daniele-maselli-878a88101/).
 
 ## Tech
 - [Vite](https://vitejs.dev/) as a dev environment
